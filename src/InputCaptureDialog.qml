@@ -16,6 +16,19 @@ PWD.SystemDialog {
     title: i18nc("@title:window", "Input Capture Requested")
     subtitle: app === "" ? i18nc("The application is unknown", "An application requested to capture input events") : i18nc("%1 is the name of the application", "%1 requested to capture input events", app)
 
+        ColumnLayout {
+        QQC2.Label {
+            id: desc
+            textFormat: Text.MarkdownText
+            Layout.fillHeight: true
+        }
+        QQC2.CheckBox {
+            id: grantperm
+            checked: true
+            text: i18n("Remember this decision")
+        }
+    }
+
     standardButtons: QQC2.DialogButtonBox.Ok | QQC2.DialogButtonBox.Cancel
 
     Component.onCompleted:  dialogButtonBox.standardButton(QQC2.DialogButtonBox.Ok).text = i18nc("@action:button", "Allow")
